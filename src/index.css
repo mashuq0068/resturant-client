@@ -15,3 +15,16 @@ body {
 .letter-spacing {
   letter-spacing: 6px;
 }
+.bg-image{
+  background-image: url('/bistro-boss-restaurant-resources/assets/home/chef-service.jpg');
+}
+.radius{
+  border-radius: 0px 200px 200px 200px;
+}
+.featured-image{
+  background-image: url('/bistro-boss-restaurant-resources/assets/home/featured.jpg');
+}
+.linear{
+  background-image:
+  linear-gradient(0deg, rgba(21, 21, 21, 0.70) 0%, rgba(21, 21, 21, 0.70) 100%) ;
+}

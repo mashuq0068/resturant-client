@@ -5,15 +5,21 @@ import 'swiper/css/hash-navigation'
 
 
 import 'swiper/css';
+import SectionTitle from '../SectionTitle/SectionTitle';
 const Category = () => {
     return (
-        <div className='w-[50vw] mx-auto font-cinzel'>
+        <>
+         <SectionTitle subTitle={"---From 11:00am to 10:00pm---"} title={"ORDER ONLINE"}>
+                
+                </SectionTitle>
+        <div className='w-[70vw] mx-auto font-cinzel'>
+           
             <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y]}
-        spaceBetween={50}
+        spaceBetween={12}
         zoom={true}
         pagination={{ clickable: true }} 
-        slidesPerView={3}
+        slidesPerView={4}
         onSlideChange={() => console.log('slide change')}
         onSwiper={(swiper) => console.log(swiper)}
       >
@@ -41,6 +47,7 @@ const Category = () => {
         ...
       </Swiper>
         </div>
+        </>
     );
 };
 

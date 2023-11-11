@@ -16,8 +16,8 @@ const Navbar = () => {
                <NavLink to='/'>CONTACT US</NavLink>
                <NavLink to='/'>DASHBOARD</NavLink>
                <NavLink to='/'>OUR MENU</NavLink>
-              <div className=" flex items-center">
-              <NavLink to='/'>OUR SHOP</NavLink>
+               <div className=" flex items-center">
+               <NavLink to='/'>OUR SHOP</NavLink>
                <img className="2xl:w-[43px] lg:w-[35px] w-[32px]" src="/bistro-boss-restaurant-resources/assets/icon/151-1511569_cart-notifications-free-shopping-cart-favicon-hd-png-removebg-preview.png" alt="" />
               </div>
             </nav>
