@@ -13,11 +13,11 @@ const Navbar = () => {
             </div>
             <nav className="flex z-30 items-center gap-9 2xl:text-xl mr-[3%] font-semibold  lg:text-md  text-base">
                <NavLink to='/'>HOME</NavLink>
-               <NavLink to='/'>CONTACT US</NavLink>
-               <NavLink to='/'>DASHBOARD</NavLink>
-               <NavLink to='/'>OUR MENU</NavLink>
+               <NavLink to='/contact' >CONTACT US</NavLink>
+               <NavLink to='/dashboard' >DASHBOARD</NavLink>
+               <NavLink to='/menu' >OUR MENU</NavLink>
                <div className=" flex items-center">
-               <NavLink to='/'>OUR SHOP</NavLink>
+               <NavLink to='/shop' >OUR SHOP</NavLink>
                <img className="2xl:w-[43px] lg:w-[35px] w-[32px]" src="/bistro-boss-restaurant-resources/assets/icon/151-1511569_cart-notifications-free-shopping-cart-favicon-hd-png-removebg-preview.png" alt="" />
               </div>
             </nav>

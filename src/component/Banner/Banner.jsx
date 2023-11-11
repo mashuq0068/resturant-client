@@ -13,7 +13,7 @@ const Banner = () => {
          <Navbar></Navbar>
          </div>
 
-     <div className='flex justify-center h-[90vh] items-center'>
+     <div className='flex justify-center h-[80vh] items-center'>
      <Carousel 
      autoPlay={true}
      infiniteLoop
@@ -24,7 +24,7 @@ const Banner = () => {
     
      interval={3000}
         >
-     
+    
      <div>
      <img className="" src="/bistro-boss-restaurant-resources/assets/home/01.jpg" alt="" />
     

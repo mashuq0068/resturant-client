@@ -28,3 +28,43 @@ body {
   background-image:
   linear-gradient(0deg, rgba(21, 21, 21, 0.70) 0%, rgba(21, 21, 21, 0.70) 100%) ;
 }
+.custom-classname {
+  gap: 5px;
+  max-width: 400px;
+  width: 100%;
+}
+
+.custom-classname .rr--svg {
+  border: none;
+ 
+}
+
+.custom-classname .rr--on .rr--svg {
+  fill: #D99904;
+  
+ 
+}
+
+.custom-classname .rr--off .rr--svg {
+  border: none;
+  fill: #a1a1a1;
+ 
+
+  
+}
+.active{
+  color: yellow;
+}
+
+@media (min-width: 610px) {
+  .custom-classname {
+    max-width: 300px;
+    gap: 10px;
+  }
+
+  .custom-classname .rr--svg {
+    padding: 10px;
+   
+  }
+}
+
