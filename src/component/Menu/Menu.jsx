@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import SectionTitle from "../SectionTitle/SectionTitle";
 import MenuItem from "../MenuItem/MenuItem";
+import { Link } from "react-router-dom";
 
 
 const Menu = () => {
@@ -27,7 +28,7 @@ const Menu = () => {
             {menuitems?.map(item => <MenuItem key={item._id} item={item}></MenuItem>)}
             </div>
            <div className="text-center mt-[5%] ">
-           <button className="btn text-[20px] capitalize hover:bg-gray-800 hover:text-white font-thin hover:border-b-[#1F2937] border-b-[#1F2937] z-20 border-b-2"> View Full  Menu</button>
+         <Link to='/menu'>  <button className="btn text-[20px] capitalize hover:bg-gray-800 hover:text-white font-thin hover:border-b-[#1F2937] border-b-[#1F2937] s border-b-2"> View Full  Menu</button></Link>
            </div>
         </div>
     );

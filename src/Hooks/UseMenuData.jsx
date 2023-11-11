@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import MenuItem from "../component/MenuItem/MenuItem";
+import { Link } from "react-router-dom";
 
 
 const useMenuData = (category) => {
@@ -24,7 +25,7 @@ const useMenuData = (category) => {
             {menuItems?.map(item => <MenuItem key={item._id} item={item}></MenuItem>)}
         </div>
         <div className="text-center mt-[5%] ">
-           <button className="btn text-[20px] capitalize hover:bg-gray-800 hover:text-white  font-medium hover:border-b-[#1F2937] border-b-[#1F2937]   border-b-2">ORDER YOUR FAVOURITE FOOD</button>
+         <Link to='/shop'>  <button className="btn text-[20px] capitalize hover:bg-gray-800 hover:text-white  font-medium hover:border-b-[#1F2937] border-b-[#1F2937]   border-b-2">ORDER YOUR FAVOURITE FOOD</button></Link>
         </div>
         </div>
     );
