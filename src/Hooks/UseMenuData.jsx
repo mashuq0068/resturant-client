@@ -8,7 +8,7 @@ const useMenuData = (category) => {
     useEffect(() => {
         const menuData = async () => {
            try{
-            const res = await fetch('menu.json')
+            const res = await fetch('http://localhost:5000/allMenu')
             const data = await res.json()
             setMenuItems(data.filter(item => item.category === category))
            }

@@ -55,6 +55,9 @@ body {
 .active{
   color: yellow;
 }
+.form-bg{
+  background-image: url("../bistro-boss-restaurant-resources/assets/reservation/wood-grain-pattern-gray1x.png");
+}
 
 
 @media (min-width: 610px) {
