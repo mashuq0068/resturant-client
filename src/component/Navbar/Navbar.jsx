@@ -1,7 +1,13 @@
-import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../../Providers/Authprovider";
 
 
 const Navbar = () => {
+    const {user , logOutUser} = useContext(AuthContext)
+    const handleLogOut = () => {
+        logOutUser()
+    }
     return (
        <div className="py-[1%]">
     
@@ -20,6 +26,8 @@ const Navbar = () => {
                <NavLink to='/shop' >OUR SHOP</NavLink>
                <img className="2xl:w-[43px] lg:w-[35px] w-[32px]" src="/bistro-boss-restaurant-resources/assets/icon/151-1511569_cart-notifications-free-shopping-cart-favicon-hd-png-removebg-preview.png" alt="" />
               </div>
+              {user ? <Link onClick={handleLogOut} className='uppercase'>Log Out</Link> : <NavLink className=' uppercase' to='/login'>Login</NavLink>}
+              
             </nav>
             
             
