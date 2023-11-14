@@ -1,17 +1,42 @@
+import { useContext } from "react";
+import { AuthContext } from "../../Providers/Authprovider";
+import useAxios from "../../Hooks/useAxios";
 
 
 const TabItem = ({item}) => {
+  const {user} = useContext(AuthContext)
+  const axiosSecure = useAxios()
+  const {_id , image , recipe , name, price} = item
+  const handelAddToCart = () => {
+    const oneCart = {
+      menuId : _id,
+      email : user?.email,
+      image,
+      name,
+      price
+
+
+    }
+    axiosSecure.post('/carts', oneCart)
+    .then(res =>{
+      console.log(res.data)
+      alert("the product added to the cart")
+    })
+
+
+  }
     return (
-        <div>
+        <div className=" relative">
 <div className="card  bg-base-100 shadow-xl">
-  <figure className="px-10 pt-10">
-    <img src={item?.image} alt="Shoes" className="rounded-xl" />
+  <figure className="">
+    <img src={image} alt="Shoes" className="rounded-xl w-full" />
   </figure>
   <div className="card-body items-center text-center space-y-3">
-    <h2 className="card-title 2xl:text-2xl lg:text-xl font-bold">{item?.name}</h2>
-    <p className="text-[#737373]  text-left">{item?.recipe.slice(0, 72)}</p>
+    <h2 className="card-title 2xl:text-2xl lg:text-xl font-bold">{name}</h2>
+    <p className="text-[#737373]  text-left">{recipe.slice(0, 72)}</p>
+    <p className=" bg-black px-[2%] py-[1%] text-white absolute top-[3%] right-[4%]">${price}</p>
     <div className="card-actions">
-      <button className="uppercase btn  bg-gray-2Z00 border-b-2 hover:bg-gray-900 border-b-[#BB8506] text-lg text-[#BB8506] ">add to cart</button>
+      <button onClick={handelAddToCart} className="uppercase btn  bg-gray-2Z00 border-b-2 hover:bg-gray-900 border-b-[#BB8506] text-lg text-[#BB8506] ">add to cart</button>
     </div>
   </div>
 </div>

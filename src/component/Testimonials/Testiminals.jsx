@@ -7,15 +7,18 @@ import { useEffect, useState } from "react";
 import { Rating } from "@smastrom/react-rating";
 import '@smastrom/react-rating/style.css'
 
+import axios from "axios";
+
 
 const Testimonials = () => {
     const [reviews , setReviews] = useState()
+    
     useEffect(()=>{
-        fetch('http://localhost:5000/reviews')
-        .then(res => res.json())
-        .then(data => {
-            console.log(data)
-            setReviews(data)
+        axios.get('http://localhost:5000/reviews')
+      
+        .then(res => {
+            console.log(res)
+            setReviews(res.data)
         })
     },[])
     return (

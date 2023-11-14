@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 
 const Menu = () => {
     const [menuitems , setMenuItems] = useState()
+  
    useEffect(()=>{
     const fetchData = async () => {
         try {

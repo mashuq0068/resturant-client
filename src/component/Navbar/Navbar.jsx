@@ -1,12 +1,35 @@
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../Providers/Authprovider";
+import Swal from "sweetalert2";
+import useCartData from "../../Hooks/useCartData";
 
 
 const Navbar = () => {
     const {user , logOutUser} = useContext(AuthContext)
+    const [data]= useCartData()
+    console.log(data)
+   
     const handleLogOut = () => {
-        logOutUser()
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You want to logout from here",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, Logout!"
+          }).then((result) => {
+            if (result.isConfirmed) {
+                logOutUser()
+              Swal.fire({
+                title: "Logout!",
+                text: "You has been successfully logout",
+                icon: "success"
+              });
+            }
+          });
+        
     }
     return (
        <div className="py-[1%]">
@@ -24,8 +47,15 @@ const Navbar = () => {
                <NavLink to='/menu' >OUR MENU</NavLink>
                <div className=" flex items-center">
                <NavLink to='/shop' >OUR SHOP</NavLink>
-               <img className="2xl:w-[43px] lg:w-[35px] w-[32px]" src="/bistro-boss-restaurant-resources/assets/icon/151-1511569_cart-notifications-free-shopping-cart-favicon-hd-png-removebg-preview.png" alt="" />
+               {/* <img className="2xl:w-[43px] lg:w-[35px] w-[32px]" src="/bistro-boss-restaurant-resources/assets/icon/151-1511569_cart-notifications-free-shopping-cart-favicon-hd-png-removebg-preview.png" alt="" /> */}
               </div>
+              
+              <NavLink to='/cart'>
+              <button className=" uppercase lg:text-md  text-base 2xl:text-xl">
+               Cart
+             {/* <div className="badge badge-secondary text-black border-none bg-yellow-500">{data.length}</div> */}
+                </button>
+              </NavLink>
               {user ? <Link onClick={handleLogOut} className='uppercase'>Log Out</Link> : <NavLink className=' uppercase' to='/login'>Login</NavLink>}
               
             </nav>

@@ -1,16 +1,18 @@
 import { useEffect, useState } from "react";
 import MenuItem from "../component/MenuItem/MenuItem";
 import { Link } from "react-router-dom";
+import useAxios from "./useAxios";
 
 
 const useMenuData = (category) => {
     const [menuItems ,  setMenuItems] = useState([])
+    const axiosSecure = useAxios()
     useEffect(() => {
         const menuData = async () => {
            try{
-            const res = await fetch('http://localhost:5000/allMenu')
-            const data = await res.json()
-            setMenuItems(data.filter(item => item.category === category))
+            const res = await axiosSecure.get('/allMenu')
+            // const data = await res.json()
+            setMenuItems(res?.data.filter(item => item.category === category))
            }
            catch(error){
             console.log(error)
