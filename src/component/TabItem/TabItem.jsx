@@ -1,10 +1,13 @@
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/Authprovider";
 import useAxios from "../../Hooks/useAxios";
+import Swal from "sweetalert2";
+import useCartData from "../../Hooks/useCartData";
 
 
 const TabItem = ({item}) => {
   const {user} = useContext(AuthContext)
+  const [,refetch ] = useCartData()
   const axiosSecure = useAxios()
   const {_id , image , recipe , name, price} = item
   const handelAddToCart = () => {
@@ -20,11 +23,23 @@ const TabItem = ({item}) => {
     axiosSecure.post('/carts', oneCart)
     .then(res =>{
       console.log(res.data)
-      alert("the product added to the cart")
-    })
+      if (res.data.insertedId){
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "The food added to the cart",
+          showConfirmButton: false,
+          timer: 1500
+        });
+        refetch()
+       
+  }})
+
+      }
+      
 
 
-  }
+    
     return (
         <div className=" relative">
 <div className="card  bg-base-100 shadow-xl">

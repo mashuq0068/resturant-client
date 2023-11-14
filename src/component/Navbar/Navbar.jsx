@@ -7,8 +7,8 @@ import useCartData from "../../Hooks/useCartData";
 
 const Navbar = () => {
     const {user , logOutUser} = useContext(AuthContext)
-    const [data]= useCartData()
-    console.log(data)
+    const data  = useCartData()
+  
    
     const handleLogOut = () => {
         Swal.fire({
@@ -53,7 +53,7 @@ const Navbar = () => {
               <NavLink to='/cart'>
               <button className=" uppercase lg:text-md  text-base 2xl:text-xl">
                Cart
-             {/* <div className="badge badge-secondary text-black border-none bg-yellow-500">{data.length}</div> */}
+             <div className="badge badge-secondary text-black border-none bg-yellow-500">{data[0]?.length}</div>
                 </button>
               </NavLink>
               {user ? <Link onClick={handleLogOut} className='uppercase'>Log Out</Link> : <NavLink className=' uppercase' to='/login'>Login</NavLink>}
