@@ -2,13 +2,80 @@ import { RiDeleteBinFill } from "react-icons/ri";
 import useUsersData from "../../Hooks/useUsersData";
 import SectionTitle from "../SectionTitle/SectionTitle";
 import { FaUsers } from "react-icons/fa";
+import useAxios from "../../Hooks/useAxios";
+import Swal from "sweetalert2";
+
 
 
 const Users = () => {
     const {data}= useUsersData()
-    const handleDelete = () => {
+    const axiosSecure = useAxios()
+    const {refetch} = useUsersData()
+   
+    
+    const handleDelete = (id) => {
+      Swal.fire({
+        title: 'Are you sure?',
+        text: "you want delete the user",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          
+          axiosSecure.delete(`/user/${id}`)
+          .then(res => {
+           
+            console.log(res.data)
+            refetch()
+          })
+          Swal.fire(
+            'Deleted!',
+            'Your item has been deleted.',
+            'success'
+          )
+        }
+      })
+     
+
 
     }
+
+    const handleUpdateRole = (id , name)=>{
+      Swal.fire({
+        title: 'Are you sure?',
+        text: `you want to consider ${name} as a admin`,
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, make admin!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          axiosSecure.patch(`/user/admin/${id}`)
+          .then(res => {
+           
+            console.log(res.data)
+            
+            if(res.data.modifiedCount){
+            
+              refetch()
+              Swal.fire(
+                'Success full!',
+                `${name} is an admin now`,
+                'success'
+              )
+            }
+         
+          })
+          
+        }
+      })
+     
+    }
+    
     
     return (
         <div>
@@ -51,8 +118,11 @@ const Users = () => {
           <td>{i + 1}</td>
           <td className=" text-center">{user?.name}</td>
            <td className=" text-center">{user?.email}</td> 
-           <td className=" text-center"><button className=" btn bg-[#D1A054] text-xl text-white hover:bg-[#D1A054]"><FaUsers></FaUsers></button></td>
-           <td className=" text-center"><button onClick={()=>{handleDelete(user?._id)}} className=" btn bg-[#B91C1C] text-xl text-white hover:bg-[#8a1313]"><RiDeleteBinFill></RiDeleteBinFill></button></td>
+          {user?.role === "admin" ? 
+          <td className=" text-center"><p>Admin</p></td>
+           : 
+          <td className=" text-center"><button onClick={()=>{handleUpdateRole(user?._id, user?.name)}}className=" btn bg-[#D1A054] text-xl text-white hover:bg-[#D1A054]"><FaUsers></FaUsers></button></td>}
+           <td className=" text-center"><button onClick={()=>{handleDelete(user?._id  )}} className=" btn bg-[#B91C1C] text-xl text-white hover:bg-[#8a1313]"><RiDeleteBinFill></RiDeleteBinFill></button></td>
         </tr>
        )}
      
