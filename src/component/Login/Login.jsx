@@ -5,6 +5,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { loadCaptchaEnginge,LoadCanvasTemplate,validateCaptcha,  } from 'react-simple-captcha';
 import { AuthContext } from "../../Providers/Authprovider";
 import { useForm } from "react-hook-form";
+import SocialLogin from "../SocialLogin/SocialLogin";
 
 
 const Login = () => {
@@ -127,10 +128,13 @@ return (loginUser(email , password)
     </div>
    
     <div className="form-control mt-6">
-      <input type="submit" value="Login" className="btn capitalize 2xl:text-lg bg-[#b48b4cb3] border-none hover:bg-[#a37b3eb3] btn-primary"/>
+      <input type="submit" value="Login" className="btn capitalize 2xl:text-lg bg-[#D1A054] border-none hover:bg-[#a37b3eb3] btn-primary"/>
     </div>
     <div>
         <p className=" text-[#a37b3eb3] font-semibold text-center  mt-[3%]"><Link to='/signUp'>New here? Create a New Account</Link></p>
+    </div>
+    <div>
+      <SocialLogin></SocialLogin>
     </div>
   </form>
 </div>

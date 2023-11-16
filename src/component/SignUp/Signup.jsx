@@ -1,14 +1,20 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/Authprovider";
 import { updateProfile } from "firebase/auth";
 import auth from "../../firebase/firebase.config";
 import { useForm } from "react-hook-form";
 
+import usePublicAxios from "../../Hooks/usePublicAxios";
+import Swal from "sweetalert2";
+import SocialLogin from "../SocialLogin/SocialLogin";
+
 
 
 const SignUp = () => {
     const {createUser} = useContext(AuthContext)
+    const [error , setError]   = useState(null)
+    const axiosPublic = usePublicAxios()
     const navigate = useNavigate()
     const {
         register,
@@ -16,10 +22,14 @@ const SignUp = () => {
         formState: { errors },
       } = useForm()
       const onSubmit = (data) => {
+        setError("")
         console.log(data)
         createUser(data?.email , data?.password)
         .then(result => {
-            console.log(result)
+            console.log(result.user)
+           
+            
+
             updateProfile(auth.currentUser , {
                 displayName:data?.name,
                 photoURL:data?.photo
@@ -27,15 +37,39 @@ const SignUp = () => {
             })
             .then(()=>{
                 console.log("profile updated")
+                const userInfo = {
+                  email:data?.email,
+                  name:data?.name
+                }
+                axiosPublic.post(`/users?email=${data?.email}`, userInfo)
+                .then(res => {
+                  console.log(res.data)
+                  if(res.data.insertedId){
+                    Swal.fire({
+                      position: 'top-end',
+                      icon: 'success',
+                      title: 'You signed up successfully',
+                      showConfirmButton: false,
+                      timer: 1500
+                    })
+                    navigate('/login')
+                  }
+                })
+              
             })
             .catch(error => {
                 console.error(error.message)
+                setError(error.message)
             })
         })
         .catch(error => {
             console.log(error.message)
+           if(error.message){
+            setError("A user already used this email")
+           }
+            
         })
-        navigate('/login')
+      
        
     }
     
@@ -70,6 +104,7 @@ const SignUp = () => {
           </label>
           <input type="email" placeholder="email" name="email" {...register("email", {required:true})} className="input 2xl:text-lg input-bordered" />
           {errors.email && <span className="text-red-600">Your email is required</span>}
+         <span className="text-red-600">{error}</span>
         </div>
         <div className="form-control">
           <label className="label">
@@ -87,12 +122,16 @@ const SignUp = () => {
        
         </div>
         <div className="form-control mt-6">
-      <input type="submit" value="Sign Up" className="btn capitalize 2xl:text-lg bg-[#b48b4cb3] border-none hover:bg-[#a37b3eb3] btn-primary"/>
+      <input type="submit" value="Sign Up" className="btn capitalize 2xl:text-lg bg-[#D1A054] border-none hover:bg-[#a37b3eb3] btn-primary"/>
     </div>
     <div>
         <p className=" text-[#a37b3eb3] font-semibold text-center mt-[3%]"> <Link to='/login'>Already registered? Go to</Link></p>
     </div>
-      </form>
+    </form>
+    <div className="-mt-[5%] mb-[5%]">
+      <SocialLogin></SocialLogin>
+    </div>
+    
     </div>
   </div>
 </div>

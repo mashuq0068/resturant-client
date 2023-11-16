@@ -7,7 +7,7 @@ import useCartData from "../../Hooks/useCartData";
 
 const Navbar = () => {
     const {user , logOutUser} = useContext(AuthContext)
-    const data  = useCartData()
+    const {data}  = useCartData()
   
    
     const handleLogOut = () => {
@@ -40,20 +40,20 @@ const Navbar = () => {
                  <h3 className=" 2xl:text-3xl text-xl md:text-2xl font-cinzel font-black">BISTRO BOSS</h3>
                  <h4 className=" 2xl:text-2xl md:text-xl text-lg font-semibold  font-cinzel letter-spacing ">Restaurant</h4>
             </div>
-            <nav className="flex z-30 items-center gap-9 2xl:text-xl mr-[3%] font-semibold  lg:text-md  text-base">
+            <nav className="flex main-nav z-30 items-center gap-9 2xl:text-xl mr-[3%] font-semibold  lg:text-md  text-base">
                <NavLink to='/'>HOME</NavLink>
                <NavLink to='/contact' >CONTACT US</NavLink>
-               <NavLink to='/dashboard' >DASHBOARD</NavLink>
+               <NavLink to='/dashboard/users' >DASHBOARD</NavLink>
                <NavLink to='/menu' >OUR MENU</NavLink>
-               <div className=" flex items-center">
+              
                <NavLink to='/shop' >OUR SHOP</NavLink>
                {/* <img className="2xl:w-[43px] lg:w-[35px] w-[32px]" src="/bistro-boss-restaurant-resources/assets/icon/151-1511569_cart-notifications-free-shopping-cart-favicon-hd-png-removebg-preview.png" alt="" /> */}
-              </div>
+            
               
-              <NavLink to='/cart'>
+              <NavLink to='/dashboard/myCart'>
               <button className=" uppercase lg:text-md  text-base 2xl:text-xl">
                Cart
-             <div className="badge badge-secondary text-black border-none bg-yellow-500">{data[0]?.length}</div>
+             <div className="badge badge-secondary text-black border-none bg-yellow-500">{data?.length}</div>
                 </button>
               </NavLink>
               {user ? <Link onClick={handleLogOut} className='uppercase'>Log Out</Link> : <NavLink className=' uppercase' to='/login'>Login</NavLink>}

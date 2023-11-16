@@ -52,9 +52,13 @@ body {
 
   
 }
-.active{
+.main-nav >.active{
   color: yellow;
 }
+.dashboard-nav >.active{
+  color: white;
+}
+
 .form-bg{
   background-image: url("../bistro-boss-restaurant-resources/assets/reservation/wood-grain-pattern-gray1x.png");
 }

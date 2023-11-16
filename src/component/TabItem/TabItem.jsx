@@ -5,9 +5,10 @@ import Swal from "sweetalert2";
 import useCartData from "../../Hooks/useCartData";
 
 
+
 const TabItem = ({item}) => {
   const {user} = useContext(AuthContext)
-  const [,refetch ] = useCartData()
+ const {refetch} = useCartData()
   const axiosSecure = useAxios()
   const {_id , image , recipe , name, price} = item
   const handelAddToCart = () => {
@@ -35,7 +36,8 @@ const TabItem = ({item}) => {
        
   }})
 
-      }
+      }          
+
       
 
 

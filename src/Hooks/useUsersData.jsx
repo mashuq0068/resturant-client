@@ -1,16 +1,16 @@
-import { useQuery } from "@tanstack/react-query";
+
 import useAxios from "./useAxios";
-import { useContext } from "react";
-import { AuthContext } from "../Providers/Authprovider";
+import { useQuery } from "@tanstack/react-query";
 
 
-const useCartData = () => {
+
+const useUsersData = () => {
     const axiosSecure  = useAxios()
-    const {user} = useContext(AuthContext)
+   
    const {isLoading , data , refetch} = useQuery({
-     queryKey:['carts'],
+     queryKey:['users'],
      queryFn: async () =>{
-        const res = await axiosSecure.get(`/carts?email=${user?.email}`)
+        const res = await axiosSecure.get(`/users`)
         return res.data
      }
     
@@ -22,5 +22,4 @@ const useCartData = () => {
     return {data , refetch, isLoading}
 };
 
-
-export default useCartData;
+export default useUsersData;
