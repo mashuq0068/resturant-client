@@ -3,12 +3,17 @@ import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../Providers/Authprovider";
 import Swal from "sweetalert2";
 import useCartData from "../../Hooks/useCartData";
+// import useAdmin from "../../Hooks/useAdmin";
+
 
 
 const Navbar = () => {
     const {user , logOutUser} = useContext(AuthContext)
     const {data}  = useCartData()
-  
+    // const {isAdmin} = useAdmin()
+    const isAdmin  =true
+   
+
    
     const handleLogOut = () => {
         Swal.fire({
@@ -22,11 +27,18 @@ const Navbar = () => {
           }).then((result) => {
             if (result.isConfirmed) {
                 logOutUser()
-              Swal.fire({
-                title: "Logout!",
-                text: "You has been successfully logout",
-                icon: "success"
-              });
+                .then(res => {
+                  if(res){
+                  Swal.fire({
+                    title: "Logout!",
+                    text: "You has been successfully logout",
+                    icon: "success"
+                  })}
+                })
+                .catch(error => {
+                  console.error(error.message)
+                })
+             
             }
           });
         
@@ -43,7 +55,7 @@ const Navbar = () => {
             <nav className="flex main-nav z-30 items-center gap-9 2xl:text-xl mr-[3%] font-semibold  lg:text-md  text-base">
                <NavLink to='/'>HOME</NavLink>
                <NavLink to='/contact' >CONTACT US</NavLink>
-               <NavLink to='/dashboard/users' >DASHBOARD</NavLink>
+               <NavLink to={`/dashboard${isAdmin ? "/adminHome" : "/userHome"}` }>DASHBOARD</NavLink>
                <NavLink to='/menu' >OUR MENU</NavLink>
               
                <NavLink to='/shop' >OUR SHOP</NavLink>

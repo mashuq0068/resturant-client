@@ -62,6 +62,13 @@ body {
 .form-bg{
   background-image: url("../bistro-boss-restaurant-resources/assets/reservation/wood-grain-pattern-gray1x.png");
 }
+option:hover{
+  background-color: #D99904;
+}
+.bg-linear{
+ background: linear-gradient(90deg, #835D23 0%, #B58130 100%)
+}
+
 
 
 @media (min-width: 610px) {

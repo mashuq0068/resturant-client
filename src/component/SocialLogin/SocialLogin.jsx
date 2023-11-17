@@ -29,11 +29,15 @@ const SocialLogin = () => {
                   icon: 'success',
                   title: 'You signed in successfully',
                   showConfirmButton: false,
-                  timer: 1500
+                  timer: 1500,
+                 
+                 
                 })
-                navigate(location?.state ? location.state : '/')
+               
               }
             })
+
+            navigate(location?.state ? location.state : '/')
         })
         .catch((error) => {
             console.error(error.message)

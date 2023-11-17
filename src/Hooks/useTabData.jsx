@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import TabItem from "../component/TabItem/TabItem";
-import useAxios from "./useAxios";
+import usePublicAxios from "./usePublicAxios";
 
 
 const useTabData = (category) => {
-    const axiosSecure = useAxios()
+    const axiosPublic = usePublicAxios()
+
     const [tabItems ,  setTabItems] = useState([])
     const [loading , setLoading] = useState(true)
     useEffect(() => {
@@ -12,7 +13,7 @@ const useTabData = (category) => {
             
            try{
             setLoading(true)
-            const res = await axiosSecure.get('/allMenu')
+            const res = await axiosPublic.get('/allMenu')
             // const data = await res.json()
             setTabItems(res?.data.filter(item => item.category === category))
            }

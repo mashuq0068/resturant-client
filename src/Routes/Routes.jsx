@@ -12,6 +12,8 @@ import DashBoard from "../Dashboard/DashBoard";
 import UserHomePage from "../Pages/UserHomePage/UserHomePage";
 import MyCartPage from "../Pages/MyCartPage/MyCartPage";
 import UsersPage from "../Pages/UsersPage/UsersPage";
+import AdminHomePage from "../Pages/AdminHomePage/AdminHomePage";
+import AddItemsPage from "../Pages/AddItemsPage/AddItemsPage";
 
 
 const router = createBrowserRouter([
@@ -49,17 +51,27 @@ const router = createBrowserRouter([
         path:'/dashboard',
         element:<PrivateRoute><DashBoard></DashBoard></PrivateRoute>,
         children : [
+            // user
             {
-            path:'/dashboard/userHome',
+            path:'userHome',
             element:<UserHomePage></UserHomePage>
             },
             {
-                path:'/dashboard/myCart',
+                path:'myCart',
                 element:<MyCartPage></MyCartPage>
             },
+            // admin
             {
-                path:'/dashboard/users',
+                path:'users',
                 element:<UsersPage></UsersPage>
+            },
+            {
+                path:'adminHome',
+                element:<AdminHomePage></AdminHomePage>
+            },
+            {
+                path:'addItems',
+                element:<AddItemsPage></AddItemsPage>
             }
             
     ]

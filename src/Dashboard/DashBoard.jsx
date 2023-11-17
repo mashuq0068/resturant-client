@@ -1,15 +1,19 @@
 import { NavLink, Outlet } from "react-router-dom";
-import { FaCalendarWeek, FaEnvelope, FaHome, FaSearch, FaShoppingBag, FaUsers} from "react-icons/fa";
+import {  FaEnvelope, FaHome, FaSearch, FaShoppingBag, FaUsers} from "react-icons/fa";
 import { FaCalendarAlt } from "react-icons/fa";
 import { MdManageAccounts, MdOutlinePayments } from "react-icons/md";
 import { BsCart4 } from "react-icons/bs";
 import { RiMailStarFill } from "react-icons/ri";
 import { RiCalendarTodoFill } from "react-icons/ri";
 import { ImSpoonKnife } from "react-icons/im";
+// import useAdmin from "../Hooks/useAdmin";
 
 
 const DashBoard = () => {
+    // const {isAdmin} = useAdmin()
+    // console.log(isAdmin)'
     const isAdmin  = true
+   
     return (
         <div className="flex">
         <div className=" bg-[#D1A054] w-[20vw] min-h-screen  px-[2%] py-[3%]">
@@ -33,7 +37,7 @@ const DashBoard = () => {
         
           </nav> : 
            
-           <nav className="dashboard-nav md:space-y-7 space-y-3 2xl:space-y-7 font-cinzel 2xl:uppercase font-semibold">
+           <nav className="dashboard-nav md:space-y-7 space-y-3 2xl:space-y-7 font-cinzel 2xl:uppercase font-semibold mb-[10%]">
            
            
              <NavLink to='/dashboard/userHome' className='flex  gap-[2%]'> <FaHome className="2xl:text-2xl text-xl" /> User Home</NavLink>
