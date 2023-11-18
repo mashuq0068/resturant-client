@@ -14,6 +14,8 @@ import MyCartPage from "../Pages/MyCartPage/MyCartPage";
 import UsersPage from "../Pages/UsersPage/UsersPage";
 import AdminHomePage from "../Pages/AdminHomePage/AdminHomePage";
 import AddItemsPage from "../Pages/AddItemsPage/AddItemsPage";
+import ManagePage from "../Pages/ManagePage/ManagePage";
+import UpdatePage from "../Pages/UpdatePage/UpdatePage";
 
 
 const router = createBrowserRouter([
@@ -72,6 +74,14 @@ const router = createBrowserRouter([
             {
                 path:'addItems',
                 element:<AddItemsPage></AddItemsPage>
+            },
+            {
+                path:'manage',
+                element:<ManagePage></ManagePage>
+            },
+            {
+                path:'update/:id',
+                element:<UpdatePage></UpdatePage>
             }
             
     ]

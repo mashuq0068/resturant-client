@@ -3,15 +3,16 @@ import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../Providers/Authprovider";
 import Swal from "sweetalert2";
 import useCartData from "../../Hooks/useCartData";
-// import useAdmin from "../../Hooks/useAdmin";
+import useAdmin from "../../Hooks/useAdmin";
 
 
 
 const Navbar = () => {
     const {user , logOutUser} = useContext(AuthContext)
     const {data}  = useCartData()
-    // const {isAdmin} = useAdmin()
-    const isAdmin  =true
+    const {isAdmin , isAdminLoading} = useAdmin()
+    console.log(isAdmin)
+    // const isAdmin  =true
    
 
    
@@ -43,6 +44,8 @@ const Navbar = () => {
           });
         
     }
+   
+    
     return (
        <div className="py-[1%]">
     

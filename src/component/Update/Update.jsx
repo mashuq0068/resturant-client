@@ -1,14 +1,27 @@
+import Swal from "sweetalert2";
+import SectionTitle from "../SectionTitle/SectionTitle";
+import { useForm } from "react-hook-form";
+import usePublicAxios from "../../Hooks/usePublicAxios";
+import useAxios from "../../Hooks/useAxios";
+import { ImSpoonKnife } from "react-icons/im";
+import { useEffect, useState} from "react";
+import { useParams } from "react-router-dom";
 
-import { useForm } from 'react-hook-form';
-import SectionTitle from '../SectionTitle/SectionTitle';
-import { ImSpoonKnife } from 'react-icons/im';
-import usePublicAxios from '../../Hooks/usePublicAxios';
-import Swal from 'sweetalert2';
-import useAxios from '../../Hooks/useAxios';
 
-const AddItems = () => {
+const Update = () => {
     const axiosPublic = usePublicAxios()
+    const [menu  ,setMenu] = useState()
     const axiosSecure = useAxios()
+    const params = useParams()
+    console.log(params.id)
+    
+    useEffect(()=>{
+        axiosPublic.get(`/menu/${params.id}`)
+        .then(res => {
+            console.log(res.data)
+            setMenu(res.data)
+        })
+    },[])
     const imageHostingKey  = import.meta.env.VITE_IMGBB_API_KEY
     const imageHostingApi = `https://api.imgbb.com/1/upload?key=${imageHostingKey}`
     const {
@@ -26,21 +39,21 @@ const AddItems = () => {
            }
          })
          if(res.data.success){
-       const menu = {
+       const OneMenu = {
         name:data.recipeName,
         category: data.category,
         price: parseFloat(data.price),
         recipe:data.details,
-        image:res.data.data.display_url
+        image:res.data.data.image
        }
-       const menuResponse = await axiosSecure.post('/menu', menu)
+       const menuResponse = await axiosSecure.patch(`/menu/${data._id}`, OneMenu)
        console.log(menuResponse.data)
-       if(menuResponse.data.insertedId){
+       if(menuResponse.data.modifiedCount){
         reset()
         Swal.fire({
             position: 'top-end',
             icon: 'success',
-            title: 'You added the item successfully',
+            title: 'You updated the item successfully',
             showConfirmButton: false,
             timer: 1500
           })
@@ -56,8 +69,8 @@ const AddItems = () => {
             <label className="label">
             <span className="label-text 2xl:text-lg font-medium">Recipe name*</span>
              </label>
-          <input type="text" {...register("recipeName",{ required: true })} placeholder="Recipe name" className="2xl:text-lg input  input-bordered"    />
-          {errors.recipeName && <span className="text-red-600">Recipe name is required</span>}
+          <input defaultValue={menu?.name} type="text" {...register("recipeName")} placeholder="Recipe name" className="2xl:text-lg input  input-bordered"    />
+         
          </div>
 
          <div className='grid grid-cols-2 gap-5'>
@@ -65,21 +78,21 @@ const AddItems = () => {
             <label className="label">
             <span className="label-text 2xl:text-lg  font-medium">Category*</span>
              </label>
-             <select name="" id=""  {...register("category",{ required: true })} placeholder="Category" className="2xl:text-lg input  input-bordered"    >
+             <select defaultValue={menu?.category} name="" id=""  {...register("category")} placeholder="Category" className="2xl:text-lg input  input-bordered"    >
                 <option value=""></option>
-                <option value="soup" className="hover:bg-blue-500 hover:text-white">soup</option>
-                <option value="pizza" className="hover:bg-blue-500 hover:text-white">pizza</option>
-                <option value="desert" className="hover:bg-blue-500 hover:text-white">desert</option>
+                <option  value="soup" className="hover:bg-blue-500 hover:text-white">soup</option>
+                <option  value="pizza" className="hover:bg-blue-500 hover:text-white">pizza</option>
+                <option  value="desert" className="hover:bg-blue-500 hover:text-white">desert</option>
                 <option value="salad" className="hover:bg-blue-500 hover:text-white">salad</option>
              </select>
-             {errors.category && <span className="text-red-600">Category is required</span>}
+            
          
          </div>
          <div className="form-control">
             <label className="label">
             <span className="label-text 2xl:text-lg  font-medium">Price*</span>
              </label>
-          <input type="text" placeholder="Price" {...register("price",{ required: true })} className="2xl:text-lg input  input-bordered"    />
+          <input type="text" defaultValue={menu?.price} placeholder="Price" {...register("price")} className="2xl:text-lg input  input-bordered"    />
           {errors.price && <span className="text-red-600">price is required</span>}
          </div>
          </div>
@@ -87,19 +100,19 @@ const AddItems = () => {
             <label className="label">
             <span className="label-text 2xl:text-lg  font-medium">Recipe Details*</span>
              </label>
-         <textarea name="" id=""  cols="30" {...register("details",{ required: true })} rows="10" placeholder="Recipe Details" className="2xl:text-lg input h-[20vh]  input-bordered"></textarea>
+         <textarea name="" id="" defaultValue={menu?.recipe} cols="30" {...register("details")} rows="10" placeholder="Recipe Details" className="2xl:text-lg input h-[20vh]  input-bordered"></textarea>
          {errors.details && <span className="text-red-600">Details is required</span>}
          </div>
          <div className='form-control mt-[2%] mb-[2%]'>
-         <input type="file"  {...register("image",{ required: true })} className="file-input w-full max-w-xs" />
-         {errors.image && <span className="text-red-600">Image is required</span>}
+         <input type="file" defaultValue={menu?.image} {...register("image")} className="file-input w-full max-w-xs" />
+         
 
          </div>
          
        
         
     
-         <button className='text-white flex 2xl:text-lg bg-linear  capitalize px-4 py-2  cursor-pointer btn font-normal'>   <ImSpoonKnife className=' 2xl:text-lg'></ImSpoonKnife> <span>Add Item</span></button>
+         <button className='text-white flex 2xl:text-lg bg-linear  capitalize px-4 py-2  cursor-pointer btn font-normal'>   <ImSpoonKnife className=' 2xl:text-lg'></ImSpoonKnife> <span>Update Item</span></button>
           
                  </form>
              </div>
@@ -107,4 +120,4 @@ const AddItems = () => {
     );
 };
 
-export default AddItems;
+export default Update;
