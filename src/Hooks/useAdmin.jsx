@@ -22,9 +22,9 @@ const useAdmin = () => {
     
   })
 
-//   if(isAdminLoading || loading){
-//     return <span>loading</span>
-//   }
+  // if(isAdminLoading || loading){
+  //   return <span>loading</span>
+  // }
   
   
   return {isAdmin , isAdminLoading}

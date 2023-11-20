@@ -11,6 +11,7 @@ const OurShop = () => {
     const saladItem =useTabData("salad")
     const pizzaItem = useTabData("pizza")
     const soupItem = useTabData("soup")
+    if(drinksItem && dessertsItem && saladItem && pizzaItem && soupItem){
     return (
         <div>
            <div>
@@ -57,6 +58,14 @@ const OurShop = () => {
            </div>
         </div>
     );
-};
+}
+
+else{
+  return <img className="fixed top-[20%] left-[40%]" src="../../bistro-boss-restaurant-resources/assets/others/cupcake.gif" alt="" />
+}
+}
+
+
+;
 
 export default OurShop;

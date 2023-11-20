@@ -12,7 +12,7 @@ const PrivateRoute = ({children}) => {
       return children
     }
     else if (loading){
-    return  <img className="absolute top-[40%] left-[50%]" src="../../bistro-boss-restaurant-resources/assets/others/cupcake.gif" alt="" />
+    return  <img className="fixed top-[20%] left-[40%]" src="../../bistro-boss-restaurant-resources/assets/others/cupcake.gif" alt="" />
     }
 
     return <Navigate state={location?.pathname} to='/login'></Navigate>

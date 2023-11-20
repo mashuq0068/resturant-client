@@ -3,15 +3,29 @@ import useAxios from "../../Hooks/useAxios";
 import useCartData from "../../Hooks/useCartData";
 import SectionTitle from "../SectionTitle/SectionTitle";
 import { RiDeleteBinFill } from "react-icons/ri";
+import { useNavigate } from "react-router-dom";
 
 
 const MyCart = () => {
   
    const {data , refetch , isLoading}  = useCartData()
    console.log(useCartData())
+   const navigate = useNavigate()
    
     
-  
+  const handlePay = () => {
+        if(data?.length === 0){
+          Swal.fire({
+            title: "No Item?",
+            text: "You can't pay without adding anything",
+            icon: "question",
+            confirmButtonColor:'#D1A054'
+            
+          });
+          return
+        }
+        return navigate('/dashboard/payment')
+  }
     
     const axiosSecure = useAxios()
     const handleDelete = (id) => {
@@ -20,7 +34,7 @@ const MyCart = () => {
         text: "you want delete it from cart",
         icon: 'warning',
         showCancelButton: true,
-        confirmButtonColor: '#3085d6',
+        confirmButtonColor: '#D1A054',
         cancelButtonColor: '#d33',
         confirmButtonText: 'Yes, delete it!'
       }).then((result) => {
@@ -64,7 +78,7 @@ const MyCart = () => {
           
             <h3 className=" 2xl:text-3xl md:text-2xl text-xl ">Total Orders : {data?.length}</h3>
             <h3 className=" 2xl:text-3xl md:text-2xl text-xl mr-[5%]">Total Price : ${data?.reduce((total , item) => total + item.price , 0)}</h3>
-            <button className=" btn 2xl:text-xl hover:bg-[#D1A054] bg-[#D1A054] text-white">
+            <button onClick={handlePay} className=" btn 2xl:text-xl hover:bg-[#D1A054] bg-[#D1A054] text-white">
                 PAY
             </button>
            

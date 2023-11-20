@@ -16,6 +16,7 @@ import AdminHomePage from "../Pages/AdminHomePage/AdminHomePage";
 import AddItemsPage from "../Pages/AddItemsPage/AddItemsPage";
 import ManagePage from "../Pages/ManagePage/ManagePage";
 import UpdatePage from "../Pages/UpdatePage/UpdatePage";
+import PaymentPage from "../Pages/PaymentPage/PaymentPage";
 
 
 const router = createBrowserRouter([
@@ -62,7 +63,12 @@ const router = createBrowserRouter([
                 path:'myCart',
                 element:<MyCartPage></MyCartPage>
             },
-            // admin
+            {
+               path:'payment',
+               element:<PaymentPage></PaymentPage>
+            }
+            ,
+            // admin,
             {
                 path:'users',
                 element:<UsersPage></UsersPage>

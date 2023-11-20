@@ -27,11 +27,11 @@ const AddItems = () => {
          })
          if(res.data.success){
        const menu = {
-        name:data.recipeName,
-        category: data.category,
-        price: parseFloat(data.price),
-        recipe:data.details,
-        image:res.data.data.display_url
+                name: data.name,
+                category: data.category,
+                price: parseFloat(data.price),
+                recipe: data.recipe,
+                image: res.data.data.display_url
        }
        const menuResponse = await axiosSecure.post('/menu', menu)
        console.log(menuResponse.data)
@@ -56,7 +56,7 @@ const AddItems = () => {
             <label className="label">
             <span className="label-text 2xl:text-lg font-medium">Recipe name*</span>
              </label>
-          <input type="text" {...register("recipeName",{ required: true })} placeholder="Recipe name" className="2xl:text-lg input  input-bordered"    />
+          <input type="text" {...register("name",{ required: true })} placeholder="Recipe name" className="2xl:text-lg input  input-bordered"    />
           {errors.recipeName && <span className="text-red-600">Recipe name is required</span>}
          </div>
 
@@ -87,7 +87,7 @@ const AddItems = () => {
             <label className="label">
             <span className="label-text 2xl:text-lg  font-medium">Recipe Details*</span>
              </label>
-         <textarea name="" id=""  cols="30" {...register("details",{ required: true })} rows="10" placeholder="Recipe Details" className="2xl:text-lg input h-[20vh]  input-bordered"></textarea>
+         <textarea name="" id=""  cols="30" {...register("recipe",{ required: true })} rows="10" placeholder="Recipe Details" className="2xl:text-lg input h-[20vh]  input-bordered"></textarea>
          {errors.details && <span className="text-red-600">Details is required</span>}
          </div>
          <div className='form-control mt-[2%] mb-[2%]'>

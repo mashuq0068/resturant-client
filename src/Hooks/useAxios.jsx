@@ -21,14 +21,14 @@ const useAxios = () => {
       });
     
     
-    axiosSecure.interceptors.response.use(function (response) {
+    axiosSecure.interceptors.response.use( function(response) {
         
         return response;
       }, async (error) => {
         const status = error.response.status;
         if (status === 401 || status === 403) {
             // await logOutUser();
-            // // navigate('/login')
+            // navigate('/login')
         }
         return Promise.reject(error);
     

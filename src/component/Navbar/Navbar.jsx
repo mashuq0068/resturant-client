@@ -44,8 +44,11 @@ const Navbar = () => {
           });
         
     }
+    // if(isAdminLoading){
+    //   return  <img className="fixed top-[20%] left-[40%]" src="../../bistro-boss-restaurant-resources/assets/others/cupcake.gif" alt="" />
+    // }
    
-    
+    // else{
     return (
        <div className="py-[1%]">
     
@@ -82,7 +85,7 @@ const Navbar = () => {
       
         </div>
       
-    );
-};
+    )};
+// };
 
 export default Navbar;
