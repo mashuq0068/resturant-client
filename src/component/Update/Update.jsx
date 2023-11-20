@@ -6,15 +6,18 @@ import useAxios from "../../Hooks/useAxios";
 import { ImSpoonKnife } from "react-icons/im";
 import { useEffect, useState} from "react";
 import { useParams } from "react-router-dom";
+import useCartData from "../../Hooks/useCartData";
 
 
 const Update = () => {
     const axiosPublic = usePublicAxios()
     const [menu  ,setMenu] = useState()
+
     console.log(menu)
     const axiosSecure = useAxios()
     const params = useParams()
     console.log(params.id)
+   
    
     
     useEffect(()=>{

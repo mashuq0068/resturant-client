@@ -60,7 +60,7 @@ const MyCart = () => {
    
  if(isLoading){
   return(
-    <p>loading.....</p>
+    <p className=" fixed left-[40%] top-[40%]">loading.....</p>
   )
  }
     
