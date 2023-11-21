@@ -77,7 +77,7 @@ const MyCart = () => {
            <div className=" font-cinzel w-[50vw] font-bold items-center flex justify-between">
           
             <h3 className=" 2xl:text-3xl md:text-2xl text-xl ">Total Orders : {data?.length}</h3>
-            <h3 className=" 2xl:text-3xl md:text-2xl text-xl mr-[5%]">Total Price : ${data?.reduce((total , item) => total + item.price , 0)}</h3>
+            <h3 className=" 2xl:text-3xl md:text-2xl text-xl mr-[5%]">Total Price : ${data?.reduce((total , item) => total + item?.price , 0)}</h3>
             <button onClick={handlePay} className=" btn 2xl:text-xl hover:bg-[#D1A054] bg-[#D1A054] text-white">
                 PAY
             </button>

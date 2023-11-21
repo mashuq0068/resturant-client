@@ -17,6 +17,7 @@ import AddItemsPage from "../Pages/AddItemsPage/AddItemsPage";
 import ManagePage from "../Pages/ManagePage/ManagePage";
 import UpdatePage from "../Pages/UpdatePage/UpdatePage";
 import PaymentPage from "../Pages/PaymentPage/PaymentPage";
+import PaymentHistoryPage from "../Pages/PaymentHistoryPage/PaymentHistoryPage";
 
 
 const router = createBrowserRouter([
@@ -66,6 +67,10 @@ const router = createBrowserRouter([
             {
                path:'payment',
                element:<PaymentPage></PaymentPage>
+            },
+            {
+                path:'paymentHistory',
+                element:<PaymentHistoryPage></PaymentHistoryPage>
             }
             ,
             // admin,

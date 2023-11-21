@@ -7,6 +7,7 @@ import { RiMailStarFill } from "react-icons/ri";
 import { RiCalendarTodoFill } from "react-icons/ri";
 import { ImSpoonKnife } from "react-icons/im";
 import useAdmin from "../Hooks/useAdmin";
+import { RiSecurePaymentFill } from "react-icons/ri";
 
 
 const DashBoard = () => {
@@ -47,6 +48,7 @@ const DashBoard = () => {
             <NavLink to='/dashboard/userHome' className='flex  gap-[2%]'> <FaHome className="2xl:text-2xl text-xl" /> User Home</NavLink>
            <NavLink to='/dashboard/reservation' className='flex gap-[2%]'> <FaCalendarAlt className="2xl:text-2xl text-xl" /> Reservation</NavLink>
            <NavLink to='/dashboard/payment' className='flex  gap-[2%]'> <MdOutlinePayments className="2xl:text-2xl text-xl" /> Payment</NavLink>
+           <NavLink to='/dashboard/paymentHistory' className='flex  gap-[2%]'> <RiSecurePaymentFill className="2xl:text-2xl text-xl" /> Payment History</NavLink>
            <NavLink to='/dashboard/myCart' className='flex gap-[2%]'> <BsCart4 className="2xl:text-2xl text-xl" /> My Cart</NavLink>
            <NavLink to='/dashboard/review' className='flex gap-[2%]'> <RiMailStarFill className="2xl:text-2xl text-xl" />Add Review</NavLink>
            <NavLink to='/dashboard/booking' className='flex gap-[2%]'> <RiCalendarTodoFill className="2xl:text-2xl text-xl" /> My Booking</NavLink>
