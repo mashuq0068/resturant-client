@@ -15,7 +15,7 @@ const DashBoard = () => {
     console.log(isAdmin)
     // const isAdmin  = true
     if(isAdminLoading){
-      return <span>Loading.....</span>
+      return <span className=" text-center">Loading.....</span>
     }
    
     return (

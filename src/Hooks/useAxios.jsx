@@ -27,8 +27,8 @@ const useAxios = () => {
       }, async (error) => {
         const status = error.response.status;
         if (status === 401 || status === 403) {
-            // await logOutUser();
-            // navigate('/login')
+            await logOutUser();
+            navigate('/login')
         }
         return Promise.reject(error);
     

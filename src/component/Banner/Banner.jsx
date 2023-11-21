@@ -26,24 +26,24 @@ const Banner = () => {
         >
     
      <div>
-     <img className="" src="/bistro-boss-restaurant-resources/assets/home/01.jpg" alt="" />
+     <img className="" src="../../../bistro-boss-restaurant-resources/assets/home/01.jpg" alt="" />
     
      </div>
     <div>
-    <img className="" src="/bistro-boss-restaurant-resources/assets/home/02.jpg" alt="" />
+    <img className="" src="../../../bistro-boss-restaurant-resources/assets/home/02.jpg" alt="" />
     
     </div>
     <div>
-    <img className="" src="/bistro-boss-restaurant-resources/assets/home/03.png" alt="" />
+    <img className="" src="../../../bistro-boss-restaurant-resources/assets/home/03.png" alt="" />
     </div>
      <div>
-     <img className="" src="/bistro-boss-restaurant-resources/assets/home/04.jpg" alt="" />
+     <img className="" src="../../../bistro-boss-restaurant-resources/assets/home/04.jpg" alt="" />
      </div>
      <div>
-     <img className="" src="/bistro-boss-restaurant-resources/assets/home/05.png" alt="" />
+     <img className="" src="../../../bistro-boss-restaurant-resources/assets/home/05.png" alt="" />
      </div>
   <div>
-  <img className="" src="/bistro-boss-restaurant-resources/assets/home/06.png" alt="" />
+  <img className="" src="../../../bistro-boss-restaurant-resources/assets/home/06.png" alt="" />
   </div>
      </Carousel>
      </div>

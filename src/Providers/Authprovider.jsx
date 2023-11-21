@@ -38,7 +38,7 @@ const AuthProvider = ({children}) => {
              console.log(currentUser)
            
              setUser(currentUser)
-             setLoading(false)
+            
              if(currentUser){
                
             const userInfo = {email : currentUser?.email}
@@ -52,12 +52,14 @@ const AuthProvider = ({children}) => {
                   
 
                         localStorage.setItem('token' , res.data.token)
+                        setLoading(false)
                     }
                 } )
 
              }
              else{
                    localStorage.removeItem('token')
+                   setLoading(false)
              }
             
        })

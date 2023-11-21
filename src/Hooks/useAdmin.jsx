@@ -18,7 +18,7 @@ const useAdmin = () => {
         
     },
 
-    enabled:!!user?.email 
+    enabled:!loading
     
   })
 
