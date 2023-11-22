@@ -7,14 +7,16 @@ import { useEffect, useState } from "react";
 import { Rating } from "@smastrom/react-rating";
 import '@smastrom/react-rating/style.css'
 
-import axios from "axios";
+
+import usePublicAxios from "../../Hooks/usePublicAxios";
 
 
 const Testimonials = () => {
     const [reviews , setReviews] = useState()
+    const axiosPublic = usePublicAxios()
     
     useEffect(()=>{
-        axios.get('http://localhost:5000/reviews')
+        axiosPublic.get('/reviews')
       
         .then(res => {
             console.log(res)

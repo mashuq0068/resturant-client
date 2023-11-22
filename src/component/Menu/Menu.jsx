@@ -4,13 +4,15 @@ import MenuItem from "../MenuItem/MenuItem";
 import { Link } from "react-router-dom";
 
 
+
 const Menu = () => {
     const [menuitems , setMenuItems] = useState()
+    
   
    useEffect(()=>{
     const fetchData = async () => {
         try {
-          const response = await fetch('http://localhost:5000/allMenu');
+          const response = await fetch('https://resturant-server-self.vercel.app/allMenu');
           const data = await response.json();
           setMenuItems(data.slice(0, 6));
         } catch (error) {

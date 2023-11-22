@@ -17,7 +17,7 @@ const Featured = () => {
            <div className=" w-[75%] mx-auto relative">
               {/* 1st div */}
                 <div className="mt-[5%] ">
-                    <img className="w-[40%] drop-shadow-2xl shadow-xl" src="../../../bistro-boss-restaurant-resources/assets/home/featured.jpg" alt="" />
+                    <img className="w-[40%] drop-shadow-2xl shadow-xl" src="https://i.postimg.cc/HkmjLBBv/featured.jpg" alt="" />
                 </div>
                 {/* 2nd div */}
                 <div className="w-[38%]  text-white absolute lg:top-[10%] 2xl:top-[20%] right-[14%]">

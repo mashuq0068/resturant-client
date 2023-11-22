@@ -4,6 +4,7 @@ import CustomMenuBanner from "../CustomMenuBanner/CustomMenuBanner";
 import SectionTitle from "../SectionTitle/SectionTitle";
 
 
+
 const OurMenu = () => {
     const offeredItem = useMenuData("offered")
     const dessertsItem = useMenuData("dessert")
@@ -13,33 +14,33 @@ const OurMenu = () => {
    
     return (
         <>
-        <div>
-          <CustomBanner subTitle={"Would you like to try a dish?"} title={"OUR MENU"} img={"/bistro-boss-restaurant-resources/assets/menu/banner3.jpg"}></CustomBanner>
+        <div >
+          <CustomBanner subTitle={"Would you like to try a dish?"} title={"OUR MENU"} img={"https://i.postimg.cc/pTB4vVcL/banner3.jpg"}></CustomBanner>
         </div>
         <div className="">
             <SectionTitle subTitle={"---Don't miss---"} title={"TODAY'S OFFER"}></SectionTitle>
             {offeredItem}
         </div>
         <div>
-            <CustomMenuBanner img={'/bistro-boss-restaurant-resources/assets/menu/dessert-bg.jpeg'} title={"DESSERTS"} subTitle={"Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."}></CustomMenuBanner>
+            <CustomMenuBanner  img={'https://i.postimg.cc/fy2P32N4/dessert-bg.jpg'} title={"DESSERTS"} subTitle={"Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."}></CustomMenuBanner>
             <div>
                 {dessertsItem}
             </div>
         </div>
         <div>
-            <CustomMenuBanner img={'/bistro-boss-restaurant-resources/assets/menu/pizza-bg.jpg'} title={"PIZZA"} subTitle={"Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."}></CustomMenuBanner>
+            <CustomMenuBanner img={'https://i.postimg.cc/h4p63j7C/pizza-bg.jpg'} title={"PIZZA"} subTitle={"Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."}></CustomMenuBanner>
             <div>
                 {pizzaItem}
             </div>
         </div>
         <div>
-            <CustomMenuBanner img={'/bistro-boss-restaurant-resources/assets/menu/salad-bg.jpg'} title={"salads"} subTitle={"Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."}></CustomMenuBanner>
+            <CustomMenuBanner img={'https://i.postimg.cc/qMqSfTsp/salad-bg.jpg'} title={"salads"} subTitle={"Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."}></CustomMenuBanner>
             <div>
                 {saladItem}
             </div>
         </div>
         <div>
-            <CustomMenuBanner img={'/bistro-boss-restaurant-resources/assets/menu/soup-bg.jpg'} title={"Soup"} subTitle={"Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."}></CustomMenuBanner>
+            <CustomMenuBanner img={'https://i.postimg.cc/4N0MsSPV/soup-bg.jpg'} title={"Soup"} subTitle={"Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."}></CustomMenuBanner>
             <div>
                 {soupItem}
             </div>

@@ -15,7 +15,7 @@ const OurShop = () => {
     return (
         <div>
            <div>
-           <CustomBanner subTitle={"Would you like to try a dish?"} title={"OUR SHOP"} img={'../../../bistro-boss-restaurant-resources/assets/shop/banner2.jpg'}></CustomBanner>
+           <CustomBanner subTitle={"Would you like to try a dish?"} title={"OUR SHOP"} img={'https://i.ibb.co/TH8XVvj/banner2.jpg'}></CustomBanner>
            </div>
            <div className=" w-[80vw] mx-auto">
     <Tabs className=''>

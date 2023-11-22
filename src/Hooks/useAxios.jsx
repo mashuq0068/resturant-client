@@ -4,7 +4,7 @@ import { AuthContext } from "../Providers/Authprovider";
 import { useNavigate } from "react-router-dom";
 
  const axiosSecure = axios.create({
-    baseURL:'http://localhost:5000'
+    baseURL:'https://resturant-server-self.vercel.app'
  })
 const useAxios = () => {
     const { logOutUser}  = useContext(AuthContext)
@@ -27,8 +27,8 @@ const useAxios = () => {
       }, async (error) => {
         const status = error.response.status;
         if (status === 401 || status === 403) {
-            await logOutUser();
-            navigate('/login')
+            // await logOutUser();
+            // navigate('/login')
         }
         return Promise.reject(error);
     

@@ -2,9 +2,9 @@
 
 const MenuItem = ({item}) => {
     return (
-        <div className="flex gap-5 drop-shadow-xl shadow-xl rounded-4xl px-[3%] py-[2%]">
+        <div className="flex gap-5 drop-shadow-xl items-center shadow-xl rounded-4xl px-[3%] py-[2%]">
             <div>
-                <img className="w-[118px] drop-shadow-xl shadow-xl"  src={item.image} alt="" />
+                <img className="w-[90px] drop-shadow-xl shadow-xl"  src={item.image} alt="" />
             </div>
             <div className=" uppercase space-y-3">
               <h3 className=" text-[#151515] font-cinzel text-[20px]">{item.name}-------</h3>

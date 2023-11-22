@@ -87,7 +87,7 @@ return (loginUser(email , password)
      <div className="hero form-bg w-[80vw] h-[80vh] mb-[10%]  bg-base-200">
 <div className="hero-content flex-col justify-between  lg:flex-row">
 <div className="text-center lg:text-left">
- <img src="../../../bistro-boss-restaurant-resources/assets/others/authentication2.png" alt="" />
+ <img src="https://i.postimg.cc/L4PVd2vM/authentication2.png" alt="" />
 </div>
 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
   <form onSubmit={handleSubmit(onSubmit)} className="card-body ">

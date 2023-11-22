@@ -16,13 +16,13 @@ body {
   letter-spacing: 6px;
 }
 .bg-image{
-  background-image: url('/bistro-boss-restaurant-resources/assets/home/chef-service.jpg');
+  background-image: url('./assets/home/chef-service.jpg');
 }
 .radius{
   border-radius: 0px 200px 200px 200px;
 }
 .featured-image{
-  background-image: url('/bistro-boss-restaurant-resources/assets/home/featured.jpg');
+  background-image: url('./assets/home/featured.jpg');
 }
 .linear{
   background-image:
@@ -60,7 +60,7 @@ body {
 }
 
 .form-bg{
-  background-image: url("../bistro-boss-restaurant-resources/assets/reservation/wood-grain-pattern-gray1x.png");
+  background-image: url("./assets/reservation/wood-grain-pattern-gray1x.png");
 }
 option:hover{
   background-color: #D99904;

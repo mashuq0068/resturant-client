@@ -15,8 +15,8 @@ const CustomBanner = ({img , title , subTitle}) => {
          <Navbar></Navbar>
          </div>
 
-     <div className='flex justify-center h-[80vh] items-center'>
-      <img src={img} alt="" />
+     <div className='flex justify-center   h-[80vh] items-center'>
+      <img className=" w-full" src={img} alt="" />
      </div>
      </div>
      </div>

@@ -24,23 +24,23 @@ const Category = () => {
         onSwiper={(swiper) => console.log(swiper)}
       >
         <SwiperSlide>
-            <img src="/bistro-boss-restaurant-resources/assets/home/slide1.jpg" alt="" />
+            <img src="https://i.postimg.cc/76hk6TFW/slide1.jpg" alt="" />
             <p className=' -mt-[30%] text-white text-center md:text-2xl text-xl 2xl:text-3xl'>Salad</p>
             </SwiperSlide>
         <SwiperSlide>
-            <img src="/bistro-boss-restaurant-resources/assets/home/slide2.jpg" alt="" />
+            <img src="https://i.postimg.cc/rst2G2FG/slide2.jpg" alt="" />
             <p className=' -mt-[30%] text-white text-center md:text-2xl text-xl 2xl:text-3xl'>Pizza</p>
             </SwiperSlide>
         <SwiperSlide>
-            <img src="/bistro-boss-restaurant-resources/assets/home/slide3.jpg" alt="" />
+            <img src="https://i.postimg.cc/HxNC7kHs/slide3.jpg" alt="" />
             <p className=' -mt-[30%] text-white text-center md:text-2xl text-xl 2xl:text-3xl'>Soup</p>
             </SwiperSlide>
         <SwiperSlide>
-            <img src="/bistro-boss-restaurant-resources/assets/home/slide4.jpg" alt="" />
+            <img src="https://i.postimg.cc/WtLLXYhB/slide4.jpg" alt="" />
             <p className=' -mt-[30%] text-white text-center md:text-2xl text-xl 2xl:text-3xl'>Deserts</p>
             </SwiperSlide>
         <SwiperSlide>
-            <img src="/bistro-boss-restaurant-resources/assets/home/slide5.jpg" alt="" />
+            <img src="https://i.postimg.cc/76hk6TFW/slide1.jpg" alt="" />
             <p className=' -mt-[30%] text-white text-center md:text-2xl text-xl 2xl:text-3xl'>Salad</p>
             </SwiperSlide>
         
