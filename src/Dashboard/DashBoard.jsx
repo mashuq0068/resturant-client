@@ -6,17 +6,17 @@ import { BsCart4 } from "react-icons/bs";
 import { RiMailStarFill } from "react-icons/ri";
 import { RiCalendarTodoFill } from "react-icons/ri";
 import { ImSpoonKnife } from "react-icons/im";
-import useAdmin from "../Hooks/useAdmin";
+// import useAdmin from "../Hooks/useAdmin";
 import { RiSecurePaymentFill } from "react-icons/ri";
 
 
 const DashBoard = () => {
-    const {isAdmin , isAdminLoading} = useAdmin()
-    console.log(isAdmin)
-    // const isAdmin  = true
-    if(isAdminLoading){
-      return <span className=" text-center">Loading.....</span>
-    }
+    // const {isAdmin , isAdminLoading} = useAdmin()
+    // console.log(isAdmin)
+    const isAdmin  = true
+    // if(isAdminLoading){
+    //   return <span className=" text-center">Loading.....</span>
+    // }
    
     return (
         <div className="flex ">

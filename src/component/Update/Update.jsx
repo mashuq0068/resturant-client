@@ -6,7 +6,7 @@ import useAxios from "../../Hooks/useAxios";
 import { ImSpoonKnife } from "react-icons/im";
 import { useEffect, useState} from "react";
 import { useParams } from "react-router-dom";
-import useCartData from "../../Hooks/useCartData";
+
 
 
 const Update = () => {
@@ -37,19 +37,20 @@ const Update = () => {
       } = useForm()
       const onSubmit = async (data) => {
         
-         const image = {image : data.image[0]}
-         const res = await axiosPublic.post(imageHostingApi, image ,{
-           headers:{
-            'content-type' : 'multipart/form-data'
-           }
-         })
-         if(res.data.success){
+        //  const image = {image : data.image[0]}
+        //  const res = await axiosPublic.post(imageHostingApi, image ,{
+        //    headers:{
+        //     'content-type' : 'multipart/form-data'
+        //    }
+        //  })
+        //  if(res.data.success){
        const OneMenu = {
         name: data.name,
         category: data.category,
         price: parseFloat(data.price),
         recipe: data.recipe,
-        image: res.data.data.display_url
+        image:data.image
+        // image: res.data.data.display_url
        }
        console.log(OneMenu)
        const menuResponse = await axiosSecure.patch(`/menu/${menu?._id}`, OneMenu)
@@ -67,7 +68,7 @@ const Update = () => {
         
      
     }
-      }
+    //   }
     return (
         <div className=' w-[75vw] mx-auto 2xl:-mt-[6%] md:-mt-[10%]'>
              <SectionTitle subTitle={"---What's new?---"} title={"ADD AN ITEM"}></SectionTitle>
@@ -112,10 +113,15 @@ const Update = () => {
          <textarea name="" id="" defaultValue={menu?.recipe} cols="30" {...register("recipe")} rows="10" placeholder="Recipe Details" className="2xl:text-lg input h-[20vh]  input-bordered"></textarea>
          
          </div>
-         <div className='form-control mt-[2%] mb-[2%]'>
+         {/* <div className='form-control mt-[2%] mb-[2%]'>
          <input type="file"  {...register("image" , {required:true})} className="file-input w-full max-w-xs" />
          {errors.image && <span className="text-red-600" >You have to add an image</span>}
          
+
+         </div> */}
+         <div className='form-control mt-[2%] mb-[2%]'>
+         <input type="text"  {...register("image",{ required: true })}  placeholder="Food Image" className="2xl:text-lg input h-[20vh]  input-bordered"  />
+         {errors.image && <span className="text-red-600">Image is required</span>}
 
          </div>
          

@@ -99,7 +99,9 @@ const Manage = () => {
            <td className=" w-[3%]"><img className="shadow-xl shadow-black" src={item?.image} alt="" /></td>
            <td className=" text-center">{item?.name}</td>
             <td>{item?.price}</td> 
-            <td><Link to={`/dashboard/update/${item?._id}`} className=" btn bg-[#D1A054] text-xl text-white hover:bg-[#8a1313]"><FiEdit /></Link></td>
+            <td><Link to={`/dashboard/update/${item?._id}`} className="  bg-[#D1A054] text-xl text-white hover:bg-[#8a1313]">edit</Link></td>
+            {/* <td><Link to={`/dashboard/update/${item?._id}`} className=" btn bg-[#D1A054] text-xl text-white hover:bg-[#8a1313]"><FiEdit /></Link></td> */}
+            {/* <td><button onClick={()=>{handleDelete(item?._id)}} className=" btn bg-[#B91C1C] text-xl text-white hover:bg-[#D1A054]">Delete</button></td> */}
             <td><button onClick={()=>{handleDelete(item?._id)}} className=" btn bg-[#B91C1C] text-xl text-white hover:bg-[#D1A054]"><RiDeleteBinFill></RiDeleteBinFill></button></td>
          </tr>
         )}

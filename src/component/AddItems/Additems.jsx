@@ -4,11 +4,10 @@ import SectionTitle from '../SectionTitle/SectionTitle';
 import { ImSpoonKnife } from 'react-icons/im';
 import usePublicAxios from '../../Hooks/usePublicAxios';
 import Swal from 'sweetalert2';
-import useAxios from '../../Hooks/useAxios';
 
 const AddItems = () => {
     const axiosPublic = usePublicAxios()
-    const axiosSecure = useAxios()
+ 
     const imageHostingKey  = import.meta.env.VITE_IMGBB_API_KEY
     const imageHostingApi = `https://api.imgbb.com/1/upload?key=${imageHostingKey}`
     const {
@@ -31,9 +30,10 @@ const AddItems = () => {
                 category: data.category,
                 price: parseFloat(data.price),
                 recipe: data.recipe,
+          
                 image: res.data.data.display_url
        }
-       const menuResponse = await axiosSecure.post('/menu', menu)
+       const menuResponse = await axiosPublic.post('/menu', menu)
        console.log(menuResponse.data)
        if(menuResponse.data.insertedId){
         reset()
@@ -90,6 +90,11 @@ const AddItems = () => {
          <textarea name="" id=""  cols="30" {...register("recipe",{ required: true })} rows="10" placeholder="Recipe Details" className="2xl:text-lg input h-[20vh]  input-bordered"></textarea>
          {errors.details && <span className="text-red-600">Details is required</span>}
          </div>
+         {/* <div className='form-control mt-[2%] mb-[2%]'>
+         <input type="text"  {...register("image",{ required: true })}  placeholder="Food Image" className="2xl:text-lg input h-[20vh]  input-bordered"  />
+         {errors.image && <span className="text-red-600">Image is required</span>}
+
+         </div> */}
          <div className='form-control mt-[2%] mb-[2%]'>
          <input type="file"  {...register("image",{ required: true })} className="file-input w-full max-w-xs" />
          {errors.image && <span className="text-red-600">Image is required</span>}
